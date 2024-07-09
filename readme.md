@@ -63,7 +63,7 @@ The folder includes:
 - all pretrained models are saved in D://omer/YOLO_weights
 
 ## Contributing
-Full credits to the two mentioned papers.
+Full credits to the mentioned papers.
 
 [1] @article{shao2018crowdhuman,
     title={CrowdHuman: A Benchmark for Detecting Human in a Crowd},
