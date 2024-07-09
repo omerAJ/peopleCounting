@@ -8,6 +8,12 @@ from pynput import keyboard
 import threading
 
 path_to_model = "D:\\omer\\tracking\\yolov8x_headCounting.pt"
+# csv to write results
+csv_filepath = "GT_omer_gate1_human_count_timestamps.csv"
+vid_path = 'D:\\omer\\Human_counting_project\\gateVideos\\gate1.mp4'
+
+# Define line coordinates
+x1, y1, x2, y2 = 1252, 599, 2404, 612
 
 class KeyCounter:
     def __init__(self):
@@ -48,8 +54,6 @@ thread.start()
 
 
 import csv
-# File for maintaining the CSV
-csv_filepath = "GT_omer_gate1_human_count_timestamps.csv"
 with open(csv_filepath, "w", newline='') as file:
     writer = csv.writer(file)
     writer.writerow(['timestamp', 'count_in', 'count_out', 'count_in_GT', 'count_out_GT'])  # Write headers
@@ -62,8 +66,7 @@ def write_to_csv(timestamp, count_in, count_out, count_in_GT, count_out_GT):
 # Initialize the model
 model = YOLO(path_to_model)
 
-# Define line coordinates
-x1, y1, x2, y2 = 1252, 599, 2404, 612
+
 # x1, y1, x2, y2 = 703, 72, 2491, 941   #gate 2
 line_point1 = (x1, y1)
 line_point2 = (x2, y2)
@@ -80,7 +83,6 @@ threshold = 0.6
 cooldown_dict = {}  # Dictionary to store cooldown timers for each object
 cooldown_time = 1200  # Cooldown time in frames
 
-vid_path = 'D:\\omer\\Human_counting_project\\gateVideos\\gate1.mp4'
 
 cv2.namedWindow('track', cv2.WINDOW_NORMAL)
 cv2.resizeWindow("track", (1920, 1080))

@@ -2,6 +2,11 @@ import csv
 
 # File for maintaining the CSV
 csv_file = "human_count_timestamps.csv"
+path_to_videos = "D:\\omer\\tracking\\sample_videos\\**\\*"
+path_to_human_model = "D:\\omer\\tracking\\yolov8x_headCounting.pt"
+# Add a line for counting
+count_line_position = 350  # Position (height) in the frame where the counting line is drawn
+
 with open(csv_file, "w", newline='') as file:
     writer = csv.writer(file)
     writer.writerow(['timestamp', 'count_in', 'count_out'])  # Write headers
@@ -12,8 +17,6 @@ def write_to_csv(timestamp, count_in, count_out):
         writer.writerow([timestamp, count_in, count_out])
 
         # path_to_video = "D:\\omer\\tracking\\sample.mp4"
-path_to_videos = "D:\\omer\\tracking\\sample_videos\\**\\*"
-path_to_human_model = "D:\\omer\\tracking\\yolov8x_headCounting.pt"
 # path_to_human_model = "D:\\omer\\tracking\\yolov8n_headCounting.pt"
 # path_to_vehicle_model = "D:\\omer\\tracking\\yolov5s_vehicle_detection.pt"
 
@@ -38,8 +41,6 @@ def putTextMultiLine(img, text, org, fontFace, fontScale, color, thickness, line
                     y_offset = i * line_spacing
                     cv2.putText(img, line, (x, y + y_offset), fontFace, fontScale, color, thickness, lineType)
 
-# Add a line for counting
-count_line_position = 350  # Position (height) in the frame where the counting line is drawn
 
 # Add counters
 counter_humans_in = 0

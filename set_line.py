@@ -1,4 +1,6 @@
-## use this code to set coordinates of the line. It will open stream, you click on where you want to get coords of. The coords are printed on screen just use those.
+## use this code to set coordinates of the line. It will open stream, 
+# you click on where you want to get coords of. 
+# The coords are printed on screen just use those.
 
 import cv2
 

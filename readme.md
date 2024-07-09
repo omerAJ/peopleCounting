@@ -54,6 +54,14 @@ The folder includes:
 2. data converted to YOLO format
 3. annotation of head of human
 
+#### Training
+
+- use train.py to train the model, provide it path to the data.yaml file and select the model you want to train.
+
+#### Pre-trained weights
+
+- all pretrained models are saved in D://omer/YOLO_weights
+
 ## Contributing
 Full credits to the two mentioned papers.
 
